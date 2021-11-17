@@ -1,24 +1,21 @@
-# Copula Packages
-
 ### Package info
-Package name: copula-density-pkg
-Version: 0.0.1
-Author: Shanshan Wang
-Author email: shanshan.wang@uni-due.de
-Description: this package is used to calcualte and draw copula density of two correlated time series.
-Autho
+Package name: copula-density-pkg<br/>
+Version: 0.0.1<br/>
+Author: Shanshan Wang<br/>
+Author email: shanshan.wang@uni-due.de<br/>
+Description: this package is used to calcualte and draw copula density of two correlated time series.<br/>
 
 
 **Python requires** version >=3.6
 
 ### Install
-pip install copula-density-pkg
+pip install copula_density-pkg
 
 ### Uninstall
-pip uninstall copula-density-pkg
+pip uninstall copula_density-pkg
 
 ### How to use
-frome copula_package import copula_density
+import copula_density
 
 ### Functions
 
