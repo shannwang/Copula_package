@@ -1,6 +1,6 @@
 ### Package info
 Package name: copuladensity-pkg<br/>
-Version: 0.0.1<br/>
+Version: 0.0.3<br/>
 Author: Shanshan Wang<br/>
 Description: this package is used to calcualte and draw copula density of two correlated time series.<br/>
 
