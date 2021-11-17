@@ -42,6 +42,8 @@ def draw_histogram(x,n_bins,label_x):
 def draw_joint_distribution(z,label_x,label_y):
     # joint distribution of x and y
     sns.jointplot(data=z, kind="scatter", x=label_x, y=label_y)
+    plt.savefig('joint_distribution.png',dpi=300, transparent=False, format='png', bbox_inches='tight')
+    plt.close(fig)
     
 def qrank_data(x):
     # quantiles of ranks of variables x and y
