@@ -1,7 +1,7 @@
 # Copula Packages
 
 ### Package info
-Package name: copula_density-pkg
+Package name: copula-density-pkg
 Version: 0.0.1
 Author: Shanshan Wang
 Author email: shanshan.wang@uni-due.de
