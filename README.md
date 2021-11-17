@@ -18,7 +18,7 @@ pip install copula_density-pkg
 pip uninstall copula_density-pkg
 
 ### How to use
-import copula_density
+from copula_package import copula_density
 
 ### Functions
 
