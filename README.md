@@ -1,3 +1,13 @@
+# Copula density
+
+
+
+# Contributors
+
+- Shanshan Wang [GitHub](https://github.com/shannwang)
+- Juan Henao [GitHub](https://github.com/juanhenao21)
+
+
 ### Package info
 Package name: copuladensity-pkg<br/>
 Version: 0.0.3<br/>
