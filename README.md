@@ -1,11 +1,24 @@
-### Package info
-Package name: copuladensity-pkg<br/>
-Version: 0.0.3<br/>
-Author: Shanshan Wang<br/>
-Description: this package is used to calcualte and draw copula density of two correlated time series.<br/>
+# Copula density
 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&r=r&type=6e&v=0.0.3&x2=0)](https://github.com/Naereen/StrapDown.js)
+[![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
 
-**Python requires** version >=3.6
+## Contributors
+ - Shanshan Wang [GitHub](https://github.com/shannwang)
+ - Juan Henao [GitHub](https://github.com/juanhenao21)
+ 
+## Motivation of the project
+By carrying out a simple python package with the function of copula density, this project aims to let contributors be familar with the process of collaboratively developing and managaing scientific packages with open source. Such practice will be of benefit to contributors' future projects. 
+
+## Package info
+
+**Package name**: copuladensity-pkg<br/>
+**Version**: 0.0.3<br/>
+**License**: MIT License<br/>
+**Description**: this package is used to calcualte and draw copula density of two correlated time series.<br/>
+**Python requires** version >=3.6<br/>
+**Webpage**: https://pypi.org/project/copuladensity-pkg/
 
 ### Install
 pip install copuladensity-pkg
@@ -13,108 +26,95 @@ pip install copuladensity-pkg
 ### Uninstall
 pip uninstall copuladensity-pkg
 
+### Prerequisites
+For `Python`, all the packages needed to run the analysis are in the `requirements.txt` file.
+
 ### How to use
+After installing this package, import the functions to your python program by
+~~~
 from copula_package import copula_density
+~~~
 
-### Functions
-
-
-<ul>
-    <li> <strong>copula_density.sampling_two_corr_time_series(mean,cov,n)</strong> <br/>
-        function: sample two correlated time series<br/>
-        mean: a list of two mean values for two time series, respectively, e.g., mean = (1, 2)<br/>
-        cov: a 2-d array of diagonal covariances between two time series, e.g., cov = [[1, 1], [1, 2]]<br/>
-        n: the length of each time series<br/>
-        return x, y, z <br/>
-        x: a list of time series<br/>
-        y: a list of time series<br/>
-        z: a pandas dataframe for x and y<br> <br/>
-    </li>
-    <li> <strong>copula_density.draw_histogram(x,n_bins,label_x)</strong><br/>
-        function: draw historgram of a time series, where the hight of histogram shows the probability density<br/>
-        x: a list of time series<br/>
-        n_bins: the number of bins in the histogram<br/>
-        label_x: a string for the label of x axis in the figure<br/>
-        return: none <br/><br/>
-    </li>
-    <li> <strong>copula_density.draw_joint_distribution(z,label_x,label_y)</strong><br/>
-        function: draw joint distribution of two time series
-        z: a pandas dataframe with two columns, where each column contains a time series<br/>
-        label_x: a string for the label of x axis in the figure<br/>
-        label_y: a string for the label of y axis in the figure<br/>
-        return: none <br/><br/>
-    </li>
-    <li> <strong>copula_density.qrank_data(x)</strong><br/>
-        function: calculate the quantile of ranking data x<br/>
-        x: a list of time series<br/>
-        return: qx <br/>
-        qx: a list of quantiles <br/><br/>
-    </li>
-    <li> <strong>copula_density.calc_copula_density(qx,qy,nx,ny)</strong><br/>
-        function: calculate copula density of two time series<br/>
-        qx: a list of quantiles <br/>
-        qy: a list of quantiles <br/>
-        nx: the number of bins for qx <br/>
-        nx: the number of bins for qy <br/>
-        return: cop_den <br>
-        cop_den: a $nx\times ny$ 2-dimentional array of copula densities<br/><br/>
-    </li>
-    <li> <strong>copula_density.draw_heatmap(matrix,label_qx,label_qy)</strong><br/>
-        function: draw heatmap for copula densities<br/>
-        matrix: 2-dimensional array of copula densities<br/>
-        label_x: a string for the label of x axis in the figure<br/>
-        label_y: a string for the label of y axis in the figure<br/>
-        return: none <br/><br/>
-    </li>
-    <li> <strong>copula_density.draw_surface(matrix,label_qx,label_qy)</strong><br/>
-        function: draw surface for copula densities<br/>
-        matrix: 2-dimensional array of copula densities<br/>
-        label_x: a string for the label of x axis in the figure<br/>
-        label_y: a string for the label of y axis in the figure<br/>
-        return: none <br/><br/>
-    </li>
-    <li> <strong>copula_density.draw_bar3d(matrix,label_qx,label_qy)</strong><br/>
-        function: draw 3-dimensional bars for copula densities<br/>
-        matrix: 2-dimensional array of copula densities<br/>
-        label_x: a string for the label of x axis in the figure<br/>
-        label_y: a string for the label of y axis in the figure<br/>
-        return: none <br/><br/>
-    </li>
-</ul>
-  
 ### An example
 
 ~~~
 from copula_package import copula_density 
+~~~
 
-# sampling two time series
+Sample two time series x and y
+~~~
 mean = (1, 2)
 cov = [[1, 1], [1, 2]]
 n=10000
-x,y,z=copula_density.sampling_two_corr_time_series(mean,cov,n) 
+z=copula_density.sampling_two_corr_time_series(mean,cov,n) 
+x=z.x
+y=z.y
+~~~
 
-# draw histogram and joint histogram of time series
+Draw histogram of x and y
+~~~
 n_bins=50
 label_x='x'
 label_y='y'
 copula_density.draw_histogram(x,n_bins,label_x)
-copula_density.draw_joint_distribution(z,label_x,label_y)
+copula_density.draw_histogram(y,n_bins,label_y)
+~~~
+*The expected figures*<br/>
+<img src="https://github.com/shannwang/Copula_package/blob/main/images/hist_of_x.png?raw=true" height="300"> <img src="https://github.com/shannwang/Copula_package/blob/main/images/hist_of_y.png?raw=true" height="300">
 
-# calculate quantiles
+Draw joint distribution of x and y
+~~~
+copula_density.draw_joint_distribution(z,label_x,label_y)
+~~~
+*The expected figure*<br/>
+<img src="https://github.com/shannwang/Copula_package/blob/main/images/joint_distribution.png?raw=true" width="600"> 
+
+Calculate quantiles
+~~~
 qx=copula_density.qrank_data(x)
 qy=copula_density.qrank_data(y)
+~~~
 
-# calcualte copula density
+Calcualte copula density
+~~~
 nx=20
 ny=20
 cop_den=copula_density.calc_copula_density(qx,qy,nx,ny)
+~~~
 
-# draw copula density in three ways
+Draw copula density with heatmap
+~~~
 label_qx='Quantile(x)'
 label_qy='Quantitle(y)'
 copula_density.draw_heatmap(cop_den,label_qx,label_qy)
+~~~
+*The expected figure*<br/>
+<img src="https://github.com/shannwang/Copula_package/blob/main/images/heatmap_cop_den.png?raw=true" width="600"> 
+
+Draw copula density with surface
+~~~ 
 copula_density.draw_surface(cop_den,label_qx,label_qy)
+~~~
+*The expected figure*<br/>
+<img src="https://github.com/shannwang/Copula_package/blob/main/images/surface_cop_den.png?raw=true" width="600"> 
+
+Draw copula density in 3-demensional bars
+~~~ 
 copula_density.draw_bar3d(cop_den,label_qx,label_qy)
 ~~~
+*The expected figure*<br/>
+<img src="https://github.com/shannwang/Copula_package/blob/main/images/bar3d_cop_den.png?raw=true" width="600"> 
 
 
+## References
+
+
+* Shanshan Wang and Thomas Guhr. Local Fluctuations of the Signed Traded Volumes and the Dependencies of Demands: A Copula Analysis, [J. Stat. Mech. 2018, 033407 (2018)](http://stacks.iop.org/1742-5468/2018/i=3/a=033407), preprint: [arXiv:1706.09240](http://arxiv.org/abs/1706.09240).
+
+* Marcel Wollschläger and Rudi Schäfer. Impact of nonstationarity on estimating and modeling empirical copulas of daily stock returns, [Journal of Risk 19, 1-23 (2016)](https://doi.org/10.21314/JOR.2016.342), preprint: [arXiv:1506.08054](http://arxiv.org/abs/1506.08054)
+
+* M.C. Münnix and R. Schäfer. A Copula Approach on the Dynamics of Statistical Dependencies in the US Stock Market, [Physica A 390, 4251 (2011)](http://dx.doi.org/10.1016/j.physa.2011.06.032) , preprint: [arXiv:1102.1099](http://arxiv.org/abs/1102.1099)
+
+## Acknowledgments
+
+Research Group Guhr - [Website](http://www.theo.physik.uni-duisburg-essen.de/tp/ags/guhr_dir/index.html)
